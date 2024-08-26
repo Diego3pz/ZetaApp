@@ -1,0 +1,12 @@
+@keyframes scroll-horizontal {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.scroll-text {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: scroll-horizontal 10s linear infinite;
+}

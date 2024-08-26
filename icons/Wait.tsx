@@ -1,0 +1,5 @@
+const WaitIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="#4ade80" viewBox="0 0 256 256" class="text-center"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="35s" from="0 0 0" to="360 0 0" repeatCount="indefinite"></animateTransform><rect width="256" height="256" fill="none"></rect><path d="M160,128a32.1,32.1,0,1,1-9.4-22.6h0l45.3-45.3h0A96,96,0,1,0,224,128Z" opacity="0.2"></path><circle cx="128" cy="128" r="96" fill="none" stroke="#4ade80" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><circle cx="128" cy="128" r="32" fill="none" stroke="#4ade80" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><line x1="224" y1="128" x2="160" y2="128" fill="none" stroke="#4ade80" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="195.9" y1="60.1" x2="150.6" y2="105.4" fill="none" stroke="#4ade80" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+)
+
+export default WaitIcon
