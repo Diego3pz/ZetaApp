@@ -3,7 +3,7 @@ import { usePlaylists } from "@/hooks/usePlaylist"
 import { NextPage } from "next"
 import Link from "next/link"
 
-const playlist: NextPage<NextPage> = () => {
+const Playlist: NextPage<NextPage> = () => {
     const { playlists } = usePlaylists()
     return (
         <>
@@ -28,4 +28,4 @@ const playlist: NextPage<NextPage> = () => {
     )
 }
 
-export default playlist
+export default Playlist

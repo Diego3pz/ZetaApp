@@ -14,7 +14,7 @@ import useSWR from "swr";
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
-const searchPage: NextPage<any> = () => {
+const SearchPage: NextPage<any> = () => {
     const [inputValue, setInputValue] = useState('')
     const router = useRouter()
     const { data, error, isLoading } = useSWR(`/api/search?song=${router.query.song}`, fetcher)
@@ -125,4 +125,4 @@ const searchPage: NextPage<any> = () => {
         </div >
     )
 }
-export default searchPage
+export default SearchPage

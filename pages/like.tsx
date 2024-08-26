@@ -5,7 +5,7 @@ import heartIcon from "../public/heart.png"
 import Image from "next/image"
 import CardPlayButton from "@/components/CardPlayButton"
 
-const likePage: NextPage<any> = () => {
+const LikePage: NextPage<NextPage> = () => {
 
     const { favorites }: any = useFavorites()
 
@@ -104,4 +104,4 @@ const likePage: NextPage<any> = () => {
     )
 }
 
-export default likePage
+export default LikePage

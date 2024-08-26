@@ -24,17 +24,15 @@ export default function Home() {
     song: state.song
   }))
 
-  // Comprobando si está cargando
   if (!data && !error) {
     return <p>Cargando...</p>;
   }
 
-  // Si hay un error al cargar los datos
+
   if (error) {
     return <p>Error: {error.message}</p>;
   }
 
-  // Si data es undefined o no tiene la propiedad top
   if (!data || !data.top) {
     return <div className="w-full">
       <div className="flex flex-col text-4xl p-5">
