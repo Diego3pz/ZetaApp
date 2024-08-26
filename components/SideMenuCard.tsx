@@ -1,5 +1,12 @@
 import Link from "next/link";
-import type { Playlist } from "../lib/data";
+interface Playlist {
+    song: any;
+    id: string;
+    albumId: number;
+    title: string;
+    cover: string;
+    artists: string[];
+  }
 
 interface Props {
     playlist: Playlist
@@ -8,7 +15,7 @@ interface Props {
 const SideMenuCard: React.FC<Props> = (playlist) => {
 
     const { image } = playlist.playlist.song[0]
-    const { uuid, name } = playlist.playlist
+    const { uuid, name } :any = playlist.playlist
 
     return (
 

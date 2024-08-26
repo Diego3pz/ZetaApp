@@ -15,12 +15,9 @@ const CardPlaylist = ({ track }: any) => {
     const [modalAdd, setModalAdd] = useState(false)
     const [showAdd, setShowAdd] = useState(false)
     const modal = useRef(null);
-    const { setTextInfo } = useActionInfoStore()
-    const { playlists } = usePlaylistsStore((state) => ({
-        playlists: state.playlists
-    }))
 
-    const { showModal, setShowModal, setSong } = useModalPlaylist((state) => ({
+
+    const { showModal, setShowModal, setSong } = useModalPlaylist((state: any) => ({
         showModal: state.showModal,
         setShowModal: state.setShowModal,
         setSong: state.setSong

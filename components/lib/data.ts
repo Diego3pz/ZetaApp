@@ -1,4 +1,4 @@
-import { colors } from "./colors";
+
 
 export interface Playlist {
   id: string;

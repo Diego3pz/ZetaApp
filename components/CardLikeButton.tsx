@@ -8,7 +8,7 @@ import { useActionInfoStore } from '@/hooks/likeStore';
 
 const CardLikeButton = ({ track }: any) => {
 
-    const { setTextInfo } = useActionInfoStore()
+    const { setTextInfo }: any = useActionInfoStore()
     const [active, setActive] = useState(false)
 
     const handleClickLike = () => {

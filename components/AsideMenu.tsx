@@ -2,16 +2,14 @@ import LibraryIcon from "../icons/Library"
 import HomeIcon from "../icons/Home"
 import SearchIcon from "../icons/Search"
 import SideMenuItem from "./SideMenuItem"
-import SideMenuCard from "./SideMenuCard"
-import { playlists } from "../lib/data"
+
 import Link from "next/link"
 import Image from "next/image"
 import heartIcon from "../public/heart.png"
-import SideMenuCardHidden from "./SideMenuCardHidden"
-import { shallow } from "zustand/shallow"
-import { usePlaylistsStore } from "@/hooks/playlistStore"
+
 import { usePlaylists } from "@/hooks/usePlaylist"
-import { useEffect } from "react"
+import SideMenuCard from "./SideMenuCard"
+
 
 const AsideMenu = ({ handleClick, click }: any) => {
 

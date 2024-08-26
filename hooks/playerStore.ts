@@ -1,9 +1,16 @@
 import { create } from "zustand";
 
 interface MusicState {
-    playlist: string | null;
-    song: string | null;
-    songs: string[];
+    id?: string;
+    track?: MusicState[] | null;
+    music?: string;
+    image?: string;
+    title?: string;
+    artist?: string;
+    position?: number;
+    playlist?: MusicState[] | null;
+    song?: MusicState | null;
+    songs?: string[];
 }
 
 interface PlayerStore {
@@ -17,13 +24,12 @@ interface PlayerStore {
 
 export const usePlayerStore = create<PlayerStore>((set) => ({
     isPlaying: false,
-    currentMusic: { playlist: null, song: null, songs: [] },
+    currentMusic: { playlist: [], song: null, songs: [] },
     volume: 1,
     setVolume: (volume: number) => set({ volume }),
     setIsPlaying: (isPlaying: boolean) => set({ isPlaying }),
     setCurrentMusic: (currentMusic: MusicState) => set({ currentMusic }),
 }));
-
 interface PlayerIndexStore {
     index: number;
     setIndex: (index: number) => void;

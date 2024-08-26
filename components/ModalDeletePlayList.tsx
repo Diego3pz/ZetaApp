@@ -7,9 +7,9 @@ const ModalDeletePlayList = ({ setShowModal, uuid }: any) => {
 
     const [namePlaylist, setNamePlaylist] = useState('')
     const modal = useRef(null);
-    const { setTextInfo } = useActionInfoStore()
+    const { setTextInfo }: any = useActionInfoStore()
 
-    const { setPlaylists } = usePlaylistsStore()
+    const { setPlaylists }: any = usePlaylistsStore()
 
     const escFunction = useCallback((event: any) => {
         if (event.keyCode === 27) setShowModal(false)

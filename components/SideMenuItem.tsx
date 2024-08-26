@@ -2,7 +2,7 @@ import Link from "next/link"
 
 interface Props {
     href: string
-    children: string
+    children: React.ReactNode
 }
 
 const SideMenuItem: React.FC<Props> = (props) => {

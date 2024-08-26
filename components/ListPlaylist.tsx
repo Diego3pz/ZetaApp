@@ -5,7 +5,7 @@ import { useActionInfoStore } from '@/hooks/likeStore';
 import { useModalPlaylist } from '@/hooks/playlistStore';
 
 const ListPlaylist = ({ song }: any) => {
-    const { setTextInfo } = useActionInfoStore()
+    const { setTextInfo }: any = useActionInfoStore()
 
     const addSongToPlaylist = (playlist: any) => {
         addSong(playlist.uuid, song)
