@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Upps from "@/public/Bsodwindows10.png"
 
-const e404: NextPage<any> = () => {
+const E404: NextPage<any> = () => {
     return (
 
         <div className="flex flex-col justify-center col-span-full mt-10">
@@ -19,4 +19,4 @@ const e404: NextPage<any> = () => {
     )
 }
 
-export default e404;
+export default E404;
