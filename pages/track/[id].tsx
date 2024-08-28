@@ -27,7 +27,12 @@ const TrackPage: NextPage<any> = (props) => {
                             alt={`Cover of ${title}`}
                             className="object-cover w-full h-full shadow-2xl rounded-md shadow-black"
                         />
+                        <div className={` mt-2 opacity-100 md:opacity-0 `}>
+                            <CardPlaylist track={song} />
+                        </div>
+
                     </picture>
+
 
                     <div className='flex flex-col justify-between'>
                         <h2 className='flex flex-1 items-end'>

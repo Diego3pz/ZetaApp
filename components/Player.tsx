@@ -93,7 +93,7 @@ const SongControl: React.FC<SongControlProps> = ({ audio }) => {
                 value={[currentTime]}
                 max={duration}
                 min={0}
-                className='w-full flex'
+                className='w-full flex z-[999]'
                 onValueChange={(value) => {
                     if (audio.current) {
                         audio.current.currentTime = value[0];

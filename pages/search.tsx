@@ -74,13 +74,13 @@ const SearchPage: NextPage<any> = () => {
                                 <div className="flex flex-wrap mt-6 gap-4 place-content-center md:place-content-start mb-6">
                                     {data && data.songs?.map((song: any, index: number) => ((
                                         <article className="group relative hover:bg-zinc-800 shadow-lg hover:shadow-xl bg-zinc-500/30 rounded-md transition-all duration-300" key={index}>
-                                            <div className={` absolute right-5 bottom-20 -translate-y-24 transition-all duration-500 opacity-100 md:opacity-0 md:group-hover:opacity-100 z-10`}>
+                                            <div className={` absolute right-5 bottom-20 -translate-y-24 transition-all duration-500 opacity-70 md:opacity-0 md:group-hover:opacity-100 z-10`}>
                                                 <CardLikeButton track={song} />
                                             </div>
                                             <div className={`absolute left-4 bottom-20 md:translate-y-4 transition-all duration-500 opacity-100 translate-y-0  md:opacity-0 md:group-hover:translate-y-0 group-hover:opacity-100 z-10`}>
                                                 <CardPlayButton track={[...data.songs]} position={index} />
                                             </div>
-                                            <div className={`absolute right-4 bottom-20 translate-y-4 transition-all duration-500 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-10`}>
+                                            <div className={`absolute right-4 bottom-20 translate-y-0 md:translate-y-4 transition-all duration-500 opacity-100 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-10`}>
                                                 <CardPlaylist track={song} />
                                             </div>
                                             <Link

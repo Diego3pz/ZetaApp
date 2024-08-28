@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 interface Song {
     id: string;
     key: string;
+    music:string;
     title: string;
     artist: string;
     image: string;
