@@ -8,8 +8,8 @@ interface Props {
 const PlaylistCard: React.FC<Props> = (playlist) => {
 
   const { image } = playlist.playlist.song[0]
-  const { uuid, name } = playlist.playlist
-  const { id } = playlist.playlist.song
+  const { uuid, name }: any = playlist.playlist
+  const { id }: any = playlist.playlist.song
 
   return (
     <div className='relative z-10 px-6 pt-10'>
