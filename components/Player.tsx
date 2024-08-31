@@ -143,6 +143,7 @@ const VolumeControl: React.FC = () => {
 };
 
 const Player: React.FC = () => {
+    const { index, setIndex } = usePlayerIndexStore();
     const { currentMusic, setCurrentMusic, isPlaying, setIsPlaying, volume } = usePlayerStore(
         state => state as PlayerState
     );
@@ -165,6 +166,7 @@ const Player: React.FC = () => {
         }
     }, [currentMusic]);
 
+
     useEffect(() => {
         if (audioRef.current) {
             audioRef.current.volume = volume;
@@ -181,27 +183,52 @@ const Player: React.FC = () => {
 
     const onNextSong = () => {
         const { song, playlist } = currentMusic;
-        const index = getSongIndex(song!.position, song!.id);
-        if (index > -1 && index + 1 < playlist.length) {
-            setIsPlaying(false);
-            setCurrentMusic({ playlist, song: playlist[index + 1] });
-            setIsPlaying(true);
+        const currentIndex = getSongIndex(song!.position, song!.id);
+        let nextIndex = currentIndex + 1;
+
+        if (!song || playlist.length === 0) return;
+        if (nextIndex >= playlist.length) {
+            nextIndex = 0;
         }
+
+        setIsPlaying(false);
+        setIndex(nextIndex);
+        setCurrentMusic({ playlist, song: playlist[nextIndex] });
+        setIsPlaying(true);
     };
+
+    useEffect(() => {
+        const audioElement = audioRef.current;
+
+        const handleSongEnd = () => {
+            onNextSong();
+        };
+
+        audioElement?.addEventListener('ended', handleSongEnd);
+
+        return () => {
+            audioElement?.removeEventListener('ended', handleSongEnd);
+        };
+    }, [currentMusic]);
 
     const onPrevSong = () => {
         const { song, playlist } = currentMusic;
-        const index = getSongIndex(song!.position, song!.id);
-        if (index > -1 && index > 0) {
-            setIsPlaying(false);
-            setCurrentMusic({ playlist, song: playlist[index - 1] });
-            setIsPlaying(true);
+        const currentIndex = getSongIndex(song!.position, song!.id);
+        let prevIndex = currentIndex - 1;
+        if (!song || playlist.length === 0) return;
+        if (prevIndex < 0) {
+            prevIndex = playlist.length - 1;
         }
+
+        setIsPlaying(false);
+        setIndex(prevIndex);
+        setCurrentMusic({ playlist, song: playlist[prevIndex] });
+        setIsPlaying(true);
     };
 
     return (
         <div className="flex flex-row items-center justify-between w-full p-4 bg-gradient-to-t from-zinc-950 to-zinc-900 rounded-lg text-white">
-            <div className='w-full md:w-[250px] lg:w-auto absolute bottom-[9rem] p-2 md:p-0 md:relative md:flex md:bottom-auto left-0 md:left-auto backdrop-blur-md bg-zinc-800/30 md:bg-transparent z-30'>
+            <div className='w-full md:w-[250px] lg:w-60 absolute bottom-[9rem] p-2 md:p-0 md:relative md:flex md:bottom-auto left-0 md:left-auto backdrop-blur-md bg-zinc-800/30 md:bg-transparent z-30'>
                 {currentMusic.song ? (
                     <CurrentSong track={currentMusic.song} />
                 ) : (
@@ -216,13 +243,27 @@ const Player: React.FC = () => {
             <div className="grid place-content-center gap-4 flex-1 sm:mb-0">
                 <div className="flex justify-center flex-col items-center">
                     <div className="flex gap-4 sm:gap-8">
-                        <button onClick={onPrevSong} title="Prev" className=''>
+                        <button
+                            onClick={onPrevSong}
+                            title="Prev"
+                            className=''
+                            disabled={!currentMusic.song || currentMusic.playlist.length === 0}
+                        >
                             <Prev />
                         </button>
-                        <button className="bg-white rounded-full p-2" onClick={handleClick}>
+                        <button
+                            className="bg-white rounded-full p-2"
+                            onClick={handleClick}
+                            disabled={!currentMusic.song}
+                        >
                             {isPlaying ? <PauseIcon /> : <PlayIcon />}
                         </button>
-                        <button onClick={onNextSong} title="Next" className=''>
+                        <button
+                            onClick={onNextSong}
+                            title="Next"
+                            className=''
+                            disabled={!currentMusic.song || currentMusic.playlist.length === 0}
+                        >
                             <Next />
                         </button>
                     </div>

@@ -63,7 +63,7 @@ const ModalNewPlaylist = ({ setShowModal, song }: any) => {
     }
 
     return (
-        <div className='z-[51] fixed left-0 top-0 flex items-center justify-center bg-black/70 backdrop-blur-sm h-screen w-screen'>
+        <div className='z-[9999] fixed left-0 top-0 flex items-center justify-center bg-black/70 backdrop-blur-sm h-screen w-screen'>
             <div ref={modal} className='absolute top-0 left-0 flex items-center h-full w-full justify-center'>
                 <div className='w-full max-w-[300px] p-4 grid gap-8 rounded-xl border border-neutral-500 border-opacity-40 bg-neutral-800'>
                     <picture className=" flex-none" >

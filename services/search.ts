@@ -2,6 +2,7 @@ import axios from 'axios'
 import Redis from 'ioredis'
 
 let redis = new Redis(process.env.REDIS_URL as string);
+
 export const search = async (query: any) => {
 
     const data = await redis.get('search-${query}', (err: any, result: any) => {

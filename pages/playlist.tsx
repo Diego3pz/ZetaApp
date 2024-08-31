@@ -9,7 +9,7 @@ const Playlist: NextPage<NextPage> = () => {
         <>
             {playlists?.length === 0 &&
                 <div className=" relative p-5 text-white w-full flex flex-col  ">
-                    <p className="text-lg">Playlist you create wil appear here
+                    <p className="text-lg">Playlist you create will appear here
                     </p>
                     <span className="text-zinc-300">Create playlists to organize your music
                     </span>

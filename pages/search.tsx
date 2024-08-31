@@ -4,7 +4,6 @@ import CardPlaylist from "@/components/CardPlaylist";
 import ModalNewPlaylist from "@/components/ModalNewPlaylist";
 import { useModalPlaylist } from "@/hooks/playlistStore";
 import SearchIcon from "@/icons/Search";
-import WaitIcon from "@/icons/Wait";
 import axios from "axios";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -70,8 +69,8 @@ const SearchPage: NextPage<any> = () => {
                             <div className='grid gap-3 sm:gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                                 {isLoading}
                             </div>
-                            <div className='relative z-10 px-6 pt-10 mb-20 md:mb-0' >
-                                <div className="flex flex-wrap mt-6 gap-4 place-content-center md:place-content-start mb-6">
+                            <div className='relative z-10 px-6 md:pt-10 mb-20 md:mb-0' >
+                                <div className="flex flex-wrap md:mt-6 gap-4 place-content-center md:place-content-start mb-6">
                                     {data && data.songs?.map((song: any, index: number) => ((
                                         <article className="group relative hover:bg-zinc-800 shadow-lg hover:shadow-xl bg-zinc-500/30 rounded-md transition-all duration-300" key={index}>
                                             <div className={` absolute right-5 bottom-20 -translate-y-24 transition-all duration-500 opacity-70 md:opacity-0 md:group-hover:opacity-100 z-10`}>
