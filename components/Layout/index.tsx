@@ -27,7 +27,7 @@ export default function Layout({
 
         <title>{`${title}`}</title>
         <div className={quicksand.className}>
-          <div id='app' className={`${quicksand.className} antialiased relative h-screen p-2 gap-2`}>
+          <div id='app' className={`${quicksand.className} antialiased relative max-h-screen h-screen p-2 gap-2`}>
 
             <aside className='[grid-area:aside] flex-col flex overflow-y-auto '>
               <AsideMenu handleClick={handleClick} click={click} />
