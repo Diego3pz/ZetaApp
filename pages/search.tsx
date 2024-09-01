@@ -40,10 +40,10 @@ const SearchPage: NextPage<any> = () => {
         <div>
             <div className="static">
 
-                <form className="flex p-5" onSubmit={e => handleSubmit(e)}>
-                    <div className=" w-full flex justify-between items-center">
+                <form className="flex py-5 md:p-5 px-5" onSubmit={e => handleSubmit(e)}>
+                    <div className="w-full flex justify-between items-center ">
 
-                        <div className="relative left-10  ml-3 pointer-events-none text-zinc-500">
+                        <div className="absolute left-10  pointer-events-none text-zinc-500">
                             <SearchIcon />
                         </div>
                         <input
@@ -61,7 +61,7 @@ const SearchPage: NextPage<any> = () => {
 
             {
                 router.query.song !== undefined ?
-                    <main className='flex flex-col gap-8'>
+                    <main className='flex flex-col gap-8 md:gap-0'>
                         <header className='flex justify-center gap-5 text-neutral-100 font-bold text-2xl lg:text-3xl'>
                             <h2 className='text-green-400'>Search - {router.query.song}</h2>
                         </header>

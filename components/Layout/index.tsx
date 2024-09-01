@@ -33,7 +33,7 @@ export default function Layout({
               <AsideMenu handleClick={handleClick} click={click} />
             </aside>
 
-            <main className='[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto'>
+            <main className='[grid-area:main] relative max-h-screen rounded-lg bg-zinc-900 overflow-y-auto'>
               {children}
             </main>
 
