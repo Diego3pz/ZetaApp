@@ -1,6 +1,7 @@
 import CardLikeButton from "@/components/CardLikeButton";
 import CardPlayButton from "@/components/CardPlayButton";
 import { deletePlaylist } from "@/components/crud/playlist";
+import { usePlayerIndexStore, usePlayerStore } from "@/hooks/playerStore";
 import { useModalPlaylist, usePlaylistsStore } from "@/hooks/playlistStore";
 import { usePlaylists } from "@/hooks/usePlaylist";
 import { getPlaylistByUUID } from "@/services/playlist";
@@ -12,7 +13,7 @@ import { useEffect, useState } from "react";
 interface Song {
     id: string;
     key: string;
-    music:string;
+    music: string;
     title: string;
     artist: string;
     image: string;
@@ -28,8 +29,10 @@ const PlaylistPage: NextPage = () => {
     const router = useRouter();
     const uuid = String(router.query?.id);
     const [playlist, setPlaylist] = useState<Playlist | undefined>(undefined);
-
     const { setPlaylists }: any = usePlaylistsStore();
+
+    const { setCurrentMusic, setIsPlaying } = usePlayerStore();
+    const { setIndex } = usePlayerIndexStore();
 
     useEffect(() => {
         if (uuid) {
@@ -47,6 +50,19 @@ const PlaylistPage: NextPage = () => {
             const newPlaylists = await deletePlaylist(uuid);
             setPlaylists(newPlaylists);
             router.push("/");
+        }
+    };
+
+    const handlePlayPlaylist = (songs: Song[] | undefined) => {
+        if (songs && songs.length > 0) {
+            
+            setCurrentMusic({
+                playlist: songs,
+                song: songs[0], 
+                songs: songs.map((s) => s.music), 
+            });
+            setIndex(0); 
+            setIsPlaying(true);
         }
     };
 
@@ -80,12 +96,16 @@ const PlaylistPage: NextPage = () => {
                                         {playlist?.song.length} {" "} Songs
                                     </span>
 
+                                    <button
+                                        onClick={() => handlePlayPlaylist(playlist?.song)}
+                                        className="bg-green-600 p-2 rounded-md font-semibold text-white">
+                                        Play Playlist
+                                    </button>
                                     <Link
                                         onClick={handleDelete}
-                                        className="bg-green-400 p-2 rounded-md font-semibold" href={"/"}>
+                                        className="bg-green-600 p-2 rounded-md font-semibold" href={"/"}>
                                         Delete Playlist
                                     </Link>
-
                                 </p>
                             </div>
                         </header>

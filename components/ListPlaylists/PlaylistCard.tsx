@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Playlist } from "../lib/data";
+import { Bounce, ToastContainer } from "react-toastify";
 
 interface Props {
   playlist: Playlist
@@ -34,6 +35,7 @@ const PlaylistCard: React.FC<Props> = (playlist) => {
           </Link>
         </article>
       </div>
+      
     </div>
 
   )

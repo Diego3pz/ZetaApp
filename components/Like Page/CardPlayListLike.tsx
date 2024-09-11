@@ -5,11 +5,11 @@ import RowLefth from '@/icons/RowLeft'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Modal from 'react-modal';
 import { useActionInfoStore } from '@/hooks/likeStore';
-import ListPlaylist from './ListPlaylist';
+import ListPlayListLike from './ListPlayListLike';
 
 Modal.setAppElement('#__next');
 
-const CardPlaylist = ({ track }: any) => {
+const CardPlaylistLike = ({ track }: any) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [modalAdd, setModalAdd] = useState(false)
@@ -66,23 +66,23 @@ const CardPlaylist = ({ track }: any) => {
     return (
         <>
             <div ref={modal}>
-                <button className=' rounded-full bg-transparent/60' onClick={() => setModalAdd(!modalAdd)}>
+                <button className=' rounded-full ' onClick={() => setModalAdd(!modalAdd)}>
                     <Dots />
                 </button>
                 {modalAdd === true ?
-                    <div className='flex flex-col rounded-lg absolute right-0 md:right-auto mt-1 bg-zinc-700 w-32 md:w-36'>
+                    <div className=' text-white flex flex-col rounded-lg absolute right-0 md:right-10  bg-zinc-700 w-32 md:w-36'>
                         <div onMouseLeave={() => setShowAdd(false)}>
-                            <p className='flex gap-2 items-center pt-2 px-3 pb-1 text-[12px] hover:cursor-pointer w-full' onClick={() => setShowAdd(true)}>
+                            <p className='flex gap-2 items-center pt-2 px-3 pb-1 text-[12px] hover:cursor-pointer w-full border border-zinc-600 rounded-lg' onClick={() => setShowAdd(true)}>
                                 Add to Playlist
-                                <RowLefth />
+                               
                             </p>
                             {showAdd &&
-                                <div className='flex flex-col right-0 md:right-auto md:left-32 top-1 p-1 shadow-sm shadow-zinc-900 rounded-lg absolute bg-zinc-800 w-20'>
-                                    <button className='flex gap-2 items-center pt-1 px-3 pb-2 text-[10px] hover:cursor-pointer w-full border-b-[1px] border-zinc-600' onClick={handleModalPlaylist}>
+                                <div className='flex flex-col right-36 md:left-auto -top-14 p-1 shadow-sm shadow-zinc-900 rounded-lg absolute bg-zinc-800 w-20  border border-zinc-600'>
+                                    <button className='flex gap-2 items-center pt-1 px-3 pb-2 text-[10px] hover:cursor-pointer w-full border-b-[1px] border-zinc-600 hover:bg-zinc-600 transition-all rounded-t-lg' onClick={handleModalPlaylist}>
                                         New Playlist
                                     </button>
-                                    <div className=' flex gap-2 items-center pt-2 px-3 pb-1 text-[12px] hover:cursor-pointer w-full'>
-                                        <ListPlaylist song={track} />
+                                    <div className=' '>
+                                        <ListPlayListLike song={track} />
                                     </div>
                                 </div>
 
@@ -99,4 +99,4 @@ const CardPlaylist = ({ track }: any) => {
     )
 }
 
-export default CardPlaylist
+export default CardPlaylistLike
